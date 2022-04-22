@@ -1,7 +1,10 @@
 const meta = (
   <>
     <meta name="keywords" content="video ,mp3,  download videos" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
     <meta name="subject" content="youtube shorts downloader" />
     <meta name="copyright" content="youtube shorts downloader" />
     <meta name="robots" content="index,follow" />
@@ -10,12 +13,16 @@ const meta = (
     <meta name="topic" content="youtube shorts downloader" />
     <meta name="summary" content="youtube shorts downloader" />
     <meta name="Classification" content="Business" />
-    <meta name="author" content="name, email@hotmail.com" />
+    <meta name="author" content="YouTube Shorts Downloader" />
+    <meta name="og:site_name" content="YouTube Shorts Video Download" />
     <meta name="designer" content="youtube shorts downloader" />
     <meta name="reply-to" content="email@hotmail.com" />
     <meta name="owner" content="youtube shorts downloader" />
-    <meta name="url" content="https://ytshorts.savetube.me/" />
-    <meta name="identifier-URL" content="https://ytshorts.savetube.me/" />
+    <meta name="url" content="https://videos-phi-ten.vercel.app/hi" />
+    <meta
+      name="identifier-URL"
+      content="https://videos-phi-ten.vercel.app/hi"
+    />
     <meta name="directory" content="submission" />
     <meta name="category" content="youtube shorts downloader" />
     <meta name="coverage" content="Worldwide" />
@@ -50,7 +57,7 @@ const meta = (
     <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
     <meta httpEquiv="x-dns-prefetch-control" content="off" />
 
-    <meta name="og:url" content="https://ytshorts.savetube.me/" />
+    <meta name="og:url" content="https://videos-phi-ten.vercel.app/hi" />
     <meta
       name="og:image"
       content="https://ytshorts.savetube.me/static/staticImage/og.jpg"
@@ -69,7 +76,7 @@ const meta = (
     <meta name="og:postal-code" content="94304" />
     <meta name="og:country-name" content="USA" />
     <meta property="fb:admins" content="987654321" />
-    <meta property="og:type" content="youtube shorts downloader" />
+    <meta property="og:type" content="website" />
     <meta property="og:points" content="POINTS_FOR_ACHIEVEMENT" />
     <meta property="og:video" content="https://ytshorts.savetube.me/" />
     <meta property="og:video:height" content="640" />
@@ -110,6 +117,7 @@ const meta = (
     <meta name="apple-touch-fullscreen" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
+
     <link
       rel="icon"
       href="https://ytshorts.savetube.me/static/staticImage/og.jpg"
