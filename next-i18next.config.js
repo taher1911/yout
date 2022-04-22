@@ -1,0 +1,28 @@
+module.exports = {
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      "en",
+      "de",
+      "es",
+      "fr",
+      "hi",
+      "id",
+      "it",
+      "ja",
+      "ko",
+      "my",
+      "ms",
+      "nl",
+      "fi",
+      "pt",
+      "ru",
+      "th",
+      "tr",
+      "vi",
+      "zh",
+      "ar",
+      "bn",
+    ],
+  },
+};
