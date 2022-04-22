@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { AiFillHome } from "react-icons/ai";
+import { BsMusicNoteBeamed, BsImages } from "react-icons/bs";
 
 const languages = [
   {
@@ -88,40 +90,15 @@ const languages = [
     value: "bn",
   },
 ];
-const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
+const Navbar = ({ home, blog, contact, mp3, thumbnail, href }) => {
   const router = useRouter();
   const [show, setShow] = useState(false);
-  const [lang, setLang] = useState({ value: "en", label: "Englis" });
-  const [pathname, setPathname] = useState("");
+  const [lang, setLang] = useState("");
 
   useEffect(() => {
-    const userLang = JSON.parse(localStorage.getItem("userLang"));
-    if (userLang) {
-      setLang(userLang);
-      if (userLang.value != "en") {
-        router.push(`/${userLang.value}${pathname}`);
-      }
-    }
-  }, []);
-
-  const changeLanguageHandler = (value) => {
-    const label = languages.find((p) => p.value == value);
-    localStorage.setItem("userLang", JSON.stringify(label));
-    setLang(label);
-    if (router.route != "/") {
-      router.push(`/${label.value}${router.pathname}`);
-    } else {
-      router.replace(`/${label.value}`);
-    }
-  };
-  useEffect(() => {
-    setPathname(router.pathname);
-    if (router.locale == "en" && router.pathname == "/") {
-      router.replace("/");
-    } else {
-      router.replace(`${pathname}`);
-    }
-  }, []);
+    const label = languages.find((p) => p.value == router.locale);
+    setLang(label.label);
+  }, [router.pathname]);
 
   return (
     <>
@@ -137,7 +114,7 @@ const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
                 className="mr-2 h-6 sm:h-9 lg:w-[25px]"
                 alt="Flowbite Logo"
               />
-              <span className="self-center text-base  text-white">
+              <span className="self-center text-base text-[14px] sm:text-[16px]  text-white">
                 Youtube Shorts Downloader
               </span>
             </a>
@@ -150,7 +127,7 @@ const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
             aria-expanded="false"
             onClick={() => setShow(!show)}
           >
-            {lang.label}
+            {lang}
             <span className="sr-only">Open main menu</span>
             <img
               src="/hamburger.svg"
@@ -160,17 +137,6 @@ const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
           </button>
           <div className="hidden w-full md:block md:w-auto " id="mobile-menu">
             <ul className="flex flex-col items-center mt-4 md:flex-row md:space-x-8 md:mt-0  md:text-sm md:font-medium ">
-              <li className="block  pr-[12px]  text-white sm:text-[16px] sm:font-[400]">
-                <Link href="/" aria-current="page">
-                  <a
-                    style={{
-                      fontWeight: router.pathname == "/" && "700",
-                    }}
-                  >
-                    {home}
-                  </a>
-                </Link>
-              </li>
               <li className="block  pr-[12px]  text-white sm:text-[16px] sm:font-[400]">
                 <Link href="https://savetube.me/">{blog}</Link>
               </li>
@@ -183,17 +149,21 @@ const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
               <li>
                 <div className="form-group">
                   <select
-                    className="form-control form-control-sm py-1 px-2 text-[.875rem] rounded-[0.2rem] text-[#495057] w-[145px] h-[31px]"
-                    onChange={(e) => changeLanguageHandler(e.target.value)}
+                    className="form-control form-control-sm  py-1 px-2 text-[.875rem] rounded-[0.2rem]  w-[145px] h-[31px] "
+                    id="mySelect"
+                    onChange={() =>
+                      router.push(href, undefined, {
+                        locale: document.getElementById("mySelect").value,
+                      })
+                    }
                   >
-                    {languages.map((language) => (
+                    {languages.map((langu) => (
                       <option
-                        key={language.label}
-                        className="options"
-                        value={language.value}
-                        selected={language.value == lang.value}
+                        key={lang.label}
+                        value={langu.value}
+                        selected={langu.value == router.locale}
                       >
-                        {language.label}
+                        {langu.label}
                       </option>
                     ))}
                   </select>
@@ -231,9 +201,10 @@ const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
                 <li
                   key={lang.label}
                   className="py-2  px-[24px] text-dark d-block border-b-[1px] border-solid border-[#dee2e6]"
-                  onClick={() => changeLanguageHandler(lang.value)}
                 >
-                  {lang.label}
+                  <Link href={href} locale={lang.value}>
+                    <a className="block">{lang.label}</a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -245,16 +216,31 @@ const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
         </div>
       </nav>
       <div
-        className=" text-[15px] sm:text=[16px] "
+        className=" text-[12px] sm:text-[14px] lg:text-[16px] "
         style={{
           borderBottom: "1px solid #dfdfdf",
         }}
       >
         <ul className="flex justify-center text-center">
-          <li className="mx-2 capitalize transition hover:text-[#fd0054]">
+          <li className="mx-2  sm:mx-4 lg:mx-6 capitalize transition hover:text-[#fd0054]">
+            <Link href={`/`}>
+              <a
+                className={`flex items-center py-4 transition text-[${
+                  router.pathname == "/" && "#fd0054"
+                }] font-[${router.pathname == "/" && "500"}]`}
+                style={{
+                  borderBottom: router.pathname == "/" && "2px solid #fd0054",
+                }}
+              >
+                <AiFillHome />
+                <span className="ml-[3px]">{home}</span>
+              </a>
+            </Link>
+          </li>
+          <li className="mx-2 sm:mx-4 lg:mx-6 capitalize transition hover:text-[#fd0054]">
             <Link href={`/short-to-mp3`}>
               <a
-                className={`block py-4 transition text-[${
+                className={`flex items-center py-4 transition text-[${
                   router.pathname == "/short-to-mp3" && "#fd0054"
                 }] font-[${router.pathname == "/short-to-mp3" && "500"}]`}
                 style={{
@@ -262,14 +248,15 @@ const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
                     router.pathname == "/short-to-mp3" && "2px solid #fd0054",
                 }}
               >
-                {mp3}
+                <BsMusicNoteBeamed />
+                <span className="ml-[3px]"> {mp3}</span>
               </a>
             </Link>
           </li>
-          <li className="mx-2 capitalize transition hover:text-[#fd0054] ">
+          <li className="mx-2 sm:mx-4 lg:mx-6 capitalize transition hover:text-[#fd0054] ">
             <Link href="/youtube-thumbnail-downloader">
               <a
-                className={`block py-4 transition text-[${
+                className={`flex items-center py-4 transition text-[${
                   router.pathname == "/youtube-thumbnail-downloader" &&
                   "#fd0054"
                 }] font-[${
@@ -282,7 +269,8 @@ const Navbar = ({ home, blog, contact, mp3, thumbnail }) => {
                     "2px solid #fd0054",
                 }}
               >
-                {thumbnail}
+                <BsImages />
+                <span className="ml-[3px]">{thumbnail}</span>
               </a>
             </Link>
           </li>

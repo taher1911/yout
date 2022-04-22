@@ -11,6 +11,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 //// components ////////
+import Navbar from "../components/ui/navbar/Navbar";
 import Link from "../components/home/Link";
 import Cards from "../components/home/Cards";
 import YoutubeShorts from "../components/home/Youtube-shorts";
@@ -85,11 +86,132 @@ export default function Home(props) {
         <title>{t("home:home_page_title")}</title>
         <meta name="description" content={`${t("home:meta_description")}`} />
         <meta name="og:title" content={t("home:home_page_title")} />
-        <meta name="og:type" content={t("home:home_page_title")} />
-        <meta name="og:site_name" content={t("home:home_page_title")} />
         <meta name="og:description" content={`${t("home:meta_description")}`} />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/"
+          hrefLang="x-default"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/"
+          hrefLang="en"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/de"
+          hrefLang="de"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/es"
+          hrefLang="es"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/fr"
+          hrefLang="fr"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/hi"
+          hrefLang="hi"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/id"
+          hrefLang="id"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/it"
+          hrefLang="it"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ja"
+          hrefLang="ja"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ko"
+          hrefLang="ko"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/my"
+          hrefLang="my"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ms"
+          hrefLang="ms"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/nl"
+          hrefLang="nl"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ph"
+          hrefLang="en-PH"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/pt"
+          hrefLang="pt"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ru"
+          hrefLang="ru"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/th"
+          hrefLang="th"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/tr"
+          hrefLang="tr"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/vi"
+          hrefLang="vi"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/zh"
+          hrefLang="zh"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/zt"
+          hrefLang="zt"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/sa"
+          hrefLang="sa"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/bn"
+          hrefLang="bn"
+        />
         {meta}
       </Head>
+      <Navbar
+        home={t("home:home_link")}
+        blog={t("home:blog_link")}
+        contact={t("home:contact_link")}
+        mp3={t("home:youtube_to_mp3")}
+        thumbnail={t("home:youtube_thumbnail")}
+        href="/"
+      />
       <div className="w-80 h-24 m-auto mt-5 bg-[#d2d2d2]  flex items-center justify-center mx-auto">
         addvertisement
       </div>

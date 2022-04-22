@@ -12,6 +12,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 //// components ////////
+import Navbar from "../../components/ui/navbar/Navbar";
 import Link from "../../components/home/Link";
 import Cards from "../../components/youtube-to-mp3/Cards";
 import Converter from "../../components/youtube-to-mp3/Converter";
@@ -62,15 +63,136 @@ export default function ShortToMp3(props) {
           content={`${t("shortMp3:mp3_page_description")}`}
         />
         <meta name="og:title" content={t("shortMp3:mp3_page_title")} />
-        <meta name="og:type" content={t("shortMp3:mp3_page_title")} />
-        <meta name="og:site_name" content={t("shortMp3:mp3_page_title")} />
         <meta
           name="og:description"
           content={`${t("shortMp3:mp3_page_description")}`}
         />
-        {meta}
-      </Head>
 
+        {meta}
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/short-to-mp3"
+          hrefLang="x-default"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/short-to-mp3"
+          hrefLang="en"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/de/short-to-mp3"
+          hrefLang="de"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/es/short-to-mp3"
+          hrefLang="es"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/fr/short-to-mp3"
+          hrefLang="fr"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/hi/short-to-mp3"
+          hrefLang="hi"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/id/short-to-mp3"
+          hrefLang="id"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/it/short-to-mp3"
+          hrefLang="it"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ja/short-to-mp3"
+          hrefLang="ja"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ko/short-to-mp3"
+          hrefLang="ko"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/my/short-to-mp3"
+          hrefLang="my"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ms/short-to-mp3"
+          hrefLang="ms"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/nl/short-to-mp3"
+          hrefLang="nl"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ph/short-to-mp3"
+          hrefLang="en-PH"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/pt/short-to-mp3"
+          hrefLang="pt"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/ru/short-to-mp3"
+          hrefLang="ru"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/th/short-to-mp3"
+          hrefLang="th"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/tr/short-to-mp3"
+          hrefLang="tr"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/vi/short-to-mp3"
+          hrefLang="vi"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/zh/short-to-mp3"
+          hrefLang="zh"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/zt/short-to-mp3"
+          hrefLang="zt"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/sa/short-to-mp3"
+          hrefLang="sa"
+        />
+        <link
+          rel="alternate"
+          href="https://ytshorts.savetube.me/bn/short-to-mp3"
+          hrefLang="bn"
+        />
+      </Head>
+      <Navbar
+        home={t("home:home_link")}
+        blog={t("home:blog_link")}
+        contact={t("home:contact_link")}
+        mp3={t("home:youtube_to_mp3")}
+        thumbnail={t("home:youtube_thumbnail")}
+        href="short-to-mp3"
+      />
       <Link
         data={{
           title: `${t("shortMp3:l_title")}`,

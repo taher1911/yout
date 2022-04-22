@@ -12,19 +12,11 @@ export async function getStaticProps({ locale }) {
   };
 }
 
-import Navbar from "../components/ui/navbar/Navbar";
 import Footer from "../components/ui/Footer";
 function MyApp({ Component, pageProps }) {
   const { t } = useTranslation();
   return (
     <>
-      <Navbar
-        home={t("home:home_link")}
-        blog={t("home:blog_link")}
-        contact={t("home:contact_link")}
-        mp3={t("home:youtube_to_mp3")}
-        thumbnail={t("home:youtube_thumbnail")}
-      />
       <Component {...pageProps} />
       <Footer
         home={t("home:home_link")}
